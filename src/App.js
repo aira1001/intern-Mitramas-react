@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react'
 import './App.css';
+import DashboardPage from './pages/dashboardPage';
+import Sidebar from './components/sidebar';
+import Login from './pages/login';
+import ListUser from './pages/listUser';
+import BasicUsage from './components/alertDialog';
+import EditUser from './pages/editUser';
+import CreateUser from './pages/createUser';
+import BreadCrumb from './components/breadCrumb';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <ChakraProvider>
+    <BreadCrumb />
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Login/>}/>
+        <Route exact path="/dashboard" element={<DashboardPage/>}/>
+        <Route exact path="/sidebar" element={<Sidebar/>}/>
+        <Route exact path="/listUser" element={<ListUser/>} />
+        <Route exact path="/alert" element={<BasicUsage/>}/>
+        <Route exact path="/editUser/:idUser" element={<EditUser/>}/>
+        <Route exact path="/createUser" element={<CreateUser/>}/>
+      </Routes>
+    </Router>
+   </ChakraProvider>
   );
 }
 
