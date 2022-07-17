@@ -23,16 +23,16 @@ export default function Login() {
    
     return (
         <>
-        <Box>
+        <Box w="500px" m="auto" display="block" >
             <Stack>
                 <Text>email : akun13@mig.id</Text>
                 <Input type="email" placeholder="masukkan email" onChange={(event) => setEmail(event.target.value)} value={email}/>
             </Stack>
-            <Stack>
+            <Stack mt={5}>
                 <Text>password : 3D339E7F</Text>
                 <Input type="password" placeholder="masukkan password" onChange={(event) => setPassword(event.target.value)} value={password}/>
             </Stack>
-            <Button color="teal" onClick={postUser}>Submit</Button>
+            <Button mt={5} colorScheme="teal" onClick={postUser}>Submit</Button>
         </Box>
         </>
     )
